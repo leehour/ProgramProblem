@@ -10,12 +10,11 @@ class Solution:
     def printListFromTailToHead(self, listNode):
         # write code here
         if not listNode:
-            return ""
+            return []
         list_value = []
-        head = listNode
-        while head:
-            list_value.append(head.val)
-            head = head.next
+        while listNode:
+            list_value.append(listNode.val)
+            listNode = listNode.next
         list_value.reverse()
         return list_value
 
