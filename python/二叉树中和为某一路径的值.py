@@ -45,6 +45,7 @@ class Solution:
         result = []
         line = []
         self.dfs(result, line, root, expectNumber)
+        sorted(result, key=len, reverse=True)
         return result
 
     def dfs(self, result, line, root, expectNumber):
