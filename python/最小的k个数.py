@@ -7,7 +7,7 @@
 class Solution:
     def GetLeastNumbers_Solution(self, tinput, k):
         # write code here
-        if k > len(tinput) or not tinput:
+        if k > len(tinput) or not tinput or k <= 0:
             return []
         length = len(tinput)
         left = 0
@@ -42,4 +42,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.GetLeastNumbers_Solution([],0))
+    print(s.GetLeastNumbers_Solution([5, 1, 2, 7], 2))
