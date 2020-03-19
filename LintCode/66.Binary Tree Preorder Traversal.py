@@ -17,23 +17,41 @@ class Solution:
     @param root: A Tree
     @return: Preorder in ArrayList which contains node values.
     """
+    # Traverse
+    def preorderTraversal1(self, root):
+        # write your code here
 
-    # def preorderTraversal(self, root):
-    #     # write your code here
+        results = []
+        self.preorder(results, root)
+        return results
 
-    #     results = []
-    #     self.preorder(results, root)
-    #     return results
+    def preorder(self, results, root):
+        if not root:
+            return
 
-    # def preorder(self, results, root):
-    #     if not root:
-    #         return
+        results.append(root.val)
+        self.preorder(results, root.left)
+        self.preorder(results, root.right)
 
-    #     results.append(root.val)
-    #     self.preorder(results, root.left)
-    #     self.preorder(results, root.right)
+    # Divide & Conquer
+    def preorderTraversal2(self, root):
+        # write your code here
+        # Divide & Conquer
+        if not root:
+            return []
 
-    def preorderTraversal(self, root):
+        results = []
+        left = self.preorderTraversal(root.left)
+        right = self.preorderTraversal(root.right)
+
+        results.append(root.val)
+        results.extend(left)
+        results.extend(right)
+
+        return results
+
+    # Stack
+    def preorderTraversal3(self, root):
         if not root:
             return []
         stack = []
