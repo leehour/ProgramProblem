@@ -25,14 +25,14 @@ class Solution:
             return []
         arr = []
         self.helper(root, k1, k2, arr)
-        return arr
+        return sorted(arr)
 
     def helper(self, root, k1, k2, arr):
         if not root:
             return
         if root.val > k1:
-            self.helper(root.right, k1, k2, arr)
-        if root.val < k2:
             self.helper(root.left, k1, k2, arr)
+        if root.val < k2:
+            self.helper(root.right, k1, k2, arr)
         if root.val >= k1 and root.val <= k2:
             arr.append(root.val)
